@@ -10,18 +10,19 @@ const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
+    firstName: "",
     email: "",
+    phone: "",
     message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simuler l'envoi du formulaire
     toast({
       title: "Message envoyé",
       description: "Nous vous répondrons dans les plus brefs délais.",
     });
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", firstName: "", email: "", phone: "", message: "" });
   };
 
   return (
@@ -56,22 +57,17 @@ const Contact = () => {
                     <div>
                       <p className="font-medium text-gray-900">Téléphone</p>
                       <a
-                        href="tel:+33240000000"
+                        href="tel:0240821068"
                         className="text-gray-600 hover:text-pizza-600 transition-colors"
                       >
-                        02 40 00 00 00
+                        02 40 82 10 68
                       </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <Mail className="w-5 h-5 text-pizza-600 mt-1 mr-3" />
-                    <div>
-                      <p className="font-medium text-gray-900">Email</p>
+                      <br />
                       <a
-                        href="mailto:contact@pierrickpizza.fr"
+                        href="tel:0681404029"
                         className="text-gray-600 hover:text-pizza-600 transition-colors"
                       >
-                        contact@pierrickpizza.fr
+                        06 81 40 40 29
                       </a>
                     </div>
                   </div>
@@ -80,29 +76,11 @@ const Contact = () => {
                     <div>
                       <p className="font-medium text-gray-900">Adresse</p>
                       <p className="text-gray-600">
-                        1 Rue de la Pizza
+                        4 Rue des Jaunins
                         <br />
-                        44580 Bourgne
-
-uf en Retz
+                        Bourgneuf en Retz
                       </p>
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                  Horaires
-                </h2>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Mardi - Dimanche</span>
-                    <span className="text-gray-900">11h30 - 14h, 18h - 22h</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Lundi</span>
-                    <span className="text-gray-900">Fermé</span>
                   </div>
                 </div>
               </div>
@@ -133,6 +111,22 @@ uf en Retz
               </div>
               <div>
                 <label
+                  htmlFor="firstName"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Prénom
+                </label>
+                <Input
+                  id="firstName"
+                  value={formData.firstName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, firstName: e.target.value })
+                  }
+                  required
+                />
+              </div>
+              <div>
+                <label
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
@@ -144,6 +138,23 @@ uf en Retz
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
+                  }
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Téléphone
+                </label>
+                <Input
+                  id="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
                   }
                   required
                 />

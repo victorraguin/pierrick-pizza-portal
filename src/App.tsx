@@ -6,8 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
-import Menu from "./pages/Menu";
-import Location from "./pages/Location";
 import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
@@ -23,8 +21,6 @@ const App = () => (
           <main className="flex-grow pt-16">
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/menu" element={<Menu />} />
-              <Route path="/location" element={<Location />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>

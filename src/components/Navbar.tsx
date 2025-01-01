@@ -8,8 +8,6 @@ const Navbar = () => {
 
   const links = [
     { href: "/", label: "Accueil" },
-    { href: "/menu", label: "Menu" },
-    { href: "/location", label: "Nous trouver" },
     { href: "/contact", label: "Contact" },
   ];
 
