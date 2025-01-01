@@ -4,7 +4,7 @@ import { RestaurantInfo } from "@/components/RestaurantInfo";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { MenuFilters } from "@/components/MenuFilters";
 import { menuData } from "@/data/menuData";
-import { Plus, Egg, Carrot, Beef, Pizza, Image } from "lucide-react";
+import { Plus, Egg, Carrot, Beef, Pizza, Image, Star } from "lucide-react";
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -115,6 +115,53 @@ const Index = () => {
               alt="Notre restaurant"
               className="rounded-lg w-full h-64 object-cover hover:opacity-90 transition-opacity"
             />
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <h3 className="text-xl font-semibold text-pizza-100 mb-6 flex items-center gap-2">
+            <Star className="w-6 h-6 text-yellow-400" />
+            Avis de nos clients
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 p-6">
+              <div className="flex items-center mb-2">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <span className="ml-2 text-pizza-200">5/5</span>
+              </div>
+              <p className="text-pizza-200 italic">"Excellentes pizzas, pâte fine et croustillante, garnitures généreuses et de qualité. Un vrai régal !"</p>
+              <p className="text-pizza-300 mt-2 text-sm">- Marie L.</p>
+            </div>
+
+            <div className="bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 p-6">
+              <div className="flex items-center mb-2">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <span className="ml-2 text-pizza-200">5/5</span>
+              </div>
+              <p className="text-pizza-200 italic">"Les meilleures pizzas du coin ! Service rapide et sympathique. Je recommande vivement."</p>
+              <p className="text-pizza-300 mt-2 text-sm">- Thomas D.</p>
+            </div>
+
+            <div className="bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 p-6">
+              <div className="flex items-center mb-2">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <span className="ml-2 text-pizza-200">5/5</span>
+              </div>
+              <p className="text-pizza-200 italic">"Très bonnes pizzas, produits frais et de qualité. Le camion est présent tous les dimanches à Chéméré, c'est super pratique !"</p>
+              <p className="text-pizza-300 mt-2 text-sm">- Sophie B.</p>
+            </div>
           </div>
         </div>
       </div>
