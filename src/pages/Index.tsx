@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { Pizza, ChefHat, Search, Filter } from "lucide-react";
+import { Search, Filter } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { MenuTable } from "@/components/MenuTable";
 
 const pizzaMenu = {
   "Pizzas Sauce Tomate": [
@@ -248,7 +249,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pizza-100 via-white to-pizza-50">
+    <div className="min-h-screen bg-gradient-to-br from-pizza-900 via-pizza-800 to-pizza-900">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <motion.div
@@ -256,10 +257,10 @@ const Index = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-pizza-900 mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-pizza-100 mb-4">
             Pierrick Pizza
           </h1>
-          <p className="text-xl text-pizza-700">
+          <p className="text-xl text-pizza-300">
             Les meilleures pizzas artisanales de Bourgneuf en Retz
           </p>
         </motion.div>
@@ -267,11 +268,11 @@ const Index = () => {
         {/* Search and Filters */}
         <div className="mb-8 space-y-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pizza-400" />
             <Input
               type="text"
               placeholder="Rechercher une pizza ou un ingrédient..."
-              className="pl-10 w-full"
+              className="pl-10 w-full bg-pizza-800/50 border-pizza-700 text-pizza-100 placeholder:text-pizza-400"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -280,10 +281,10 @@ const Index = () => {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedCategory("all")}
-              className={`px-4 py-2 rounded-full ${
+              className={`px-4 py-2 rounded-full transition-colors ${
                 selectedCategory === "all"
                   ? "bg-pizza-600 text-white"
-                  : "bg-white text-pizza-600 border border-pizza-600"
+                  : "bg-pizza-800/50 text-pizza-300 border border-pizza-600"
               }`}
             >
               Toutes
@@ -292,10 +293,10 @@ const Index = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full ${
+                className={`px-4 py-2 rounded-full transition-colors ${
                   selectedCategory === category
                     ? "bg-pizza-600 text-white"
-                    : "bg-white text-pizza-600 border border-pizza-600"
+                    : "bg-pizza-800/50 text-pizza-300 border border-pizza-600"
                 }`}
               >
                 {category}
@@ -303,20 +304,20 @@ const Index = () => {
             ))}
             <button
               onClick={() => setShowVegetarian(!showVegetarian)}
-              className={`px-4 py-2 rounded-full ${
+              className={`px-4 py-2 rounded-full transition-colors ${
                 showVegetarian
                   ? "bg-green-600 text-white"
-                  : "bg-white text-green-600 border border-green-600"
+                  : "bg-pizza-800/50 text-green-300 border border-green-600"
               }`}
             >
               🥬 Végétarien
             </button>
             <button
               onClick={() => setShowSeafood(!showSeafood)}
-              className={`px-4 py-2 rounded-full ${
+              className={`px-4 py-2 rounded-full transition-colors ${
                 showSeafood
                   ? "bg-blue-600 text-white"
-                  : "bg-white text-blue-600 border border-blue-600"
+                  : "bg-pizza-800/50 text-blue-300 border border-blue-600"
               }`}
             >
               🐟 Fruits de mer
@@ -324,7 +325,7 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Menu Display */}
+        {/* Menu Tables */}
         <div className="space-y-12">
           {Object.entries(pizzaMenu).map(([category, pizzas]) => {
             if (selectedCategory !== "all" && selectedCategory !== category) return null;
@@ -333,54 +334,11 @@ const Index = () => {
             if (filteredPizzas.length === 0) return null;
 
             return (
-              <motion.div
+              <MenuTable 
                 key={category}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h2 className="text-2xl font-bold text-pizza-800 mb-6 flex items-center gap-2">
-                  <Pizza className="w-6 h-6" />
-                  {category}
-                </h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredPizzas.map((pizza) => (
-                    <motion.div
-                      key={pizza.name}
-                      className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-pizza-200 hover:shadow-xl transition-all duration-300"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-lg font-semibold text-pizza-900">
-                          {pizza.name}
-                        </h3>
-                        <div className="text-right">
-                          <div className="text-sm text-pizza-600">1 pers: {pizza.price1P}€</div>
-                          <div className="text-sm text-pizza-600">2 pers: {pizza.price2P}€</div>
-                        </div>
-                      </div>
-                      
-                      <p className="text-sm text-pizza-700">
-                        {pizza.ingredients.join(", ")}
-                      </p>
-                      
-                      <div className="mt-2 flex gap-1">
-                        {pizza.isVegetarian && (
-                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                            Végétarien
-                          </span>
-                        )}
-                        {pizza.isSeafood && (
-                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                            Fruits de mer
-                          </span>
-                        )}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+                category={category}
+                items={filteredPizzas}
+              />
             );
           })}
         </div>
@@ -390,10 +348,10 @@ const Index = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 p-6 bg-white/90 rounded-xl shadow-lg"
+          className="mt-12 p-6 bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700"
         >
-          <h3 className="text-xl font-semibold text-pizza-800 mb-4">Suppléments</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-pizza-700">
+          <h3 className="text-xl font-semibold text-pizza-100 mb-4">Suppléments</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-pizza-200">
             <div>Œuf: 0,50€</div>
             <div>Légume: 1,00€</div>
             <div>Viande: 2,00€</div>
