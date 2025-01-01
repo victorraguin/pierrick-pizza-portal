@@ -1,192 +1,405 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Pizza, ChefHat, Flame } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Pizza, ChefHat, Search, Filter } from "lucide-react";
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
 
-const menuItems = [
-  {
-    category: "Les Classiques",
-    description: "Les indémodables de la cuisine italienne",
-    items: [
-      {
-        name: "Margherita",
-        description: "Sauce tomate, mozzarella di bufala, basilic frais",
-        price: "10.50",
-        isSpicy: false,
-        isChefSpecial: true,
-      },
-      {
-        name: "Reine",
-        description: "Sauce tomate, mozzarella, jambon blanc artisanal, champignons frais",
-        price: "12.00",
-        isSpicy: false,
-        isChefSpecial: false,
-      },
-      {
-        name: "4 Fromages",
-        description: "Sauce tomate, mozzarella, gorgonzola DOP, chèvre fermier, parmesan 24 mois",
-        price: "13.50",
-        isSpicy: false,
-        isChefSpecial: false,
-      },
-    ],
-  },
-  {
-    category: "Les Spécialités",
-    description: "Nos créations uniques et savoureuses",
-    items: [
-      {
-        name: "Pierrick Spéciale",
-        description: "Sauce tomate, mozzarella, chorizo ibérique, poivrons grillés, oignons rouges caramélisés, olives de Kalamata",
-        price: "14.50",
-        isSpicy: true,
-        isChefSpecial: true,
-      },
-      {
-        name: "Océane",
-        description: "Crème fraîche d'Isigny, mozzarella, fruits de mer, persillade maison",
-        price: "15.00",
-        isSpicy: false,
-        isChefSpecial: true,
-      },
-      {
-        name: "Végétarienne",
-        description: "Sauce tomate, mozzarella, légumes grillés de saison, champignons, roquette bio",
-        price: "13.00",
-        isSpicy: false,
-        isChefSpecial: false,
-      },
-    ],
-  },
-];
+const pizzaMenu = {
+  "Pizzas Sauce Tomate": [
+    {
+      name: "Margarita",
+      ingredients: ["Sauce tomate", "Fromage", "Origan"],
+      price1P: "8.00",
+      price2P: "10.00",
+      isVegetarian: true,
+    },
+    {
+      name: "Capri",
+      ingredients: ["Sauce tomate", "Fromage", "Jambon", "Champignons"],
+      price1P: "11.50",
+      price2P: "13.50",
+    },
+    {
+      name: "Capri (sans champi, jambon)",
+      ingredients: ["Sauce tomate", "Fromage", "Jambon"],
+      price1P: "11.00",
+      price2P: "13.00",
+    },
+    {
+      name: "Campestre",
+      ingredients: ["Sauce tomate", "Fromage", "Champignons", "Olives", "Origan"],
+      price1P: "10.00",
+      price2P: "12.50",
+      isVegetarian: true,
+    },
+    {
+      name: "Casa",
+      ingredients: ["Sauce tomate", "Fromage", "Lardons fumés", "Tomates fraîches"],
+      price1P: "11.00",
+      price2P: "13.00",
+    },
+    {
+      name: "Napolitaine",
+      ingredients: ["Sauce tomate", "Fromage", "Jambon", "Champignons", "Crème fraîche"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Végétarienne",
+      ingredients: ["Sauce tomate", "Fromage", "Champignons", "Tomates fraîches", "Poivrons", "Olives"],
+      price1P: "11.00",
+      price2P: "13.00",
+      isVegetarian: true,
+    },
+    {
+      name: "4 Fromages",
+      ingredients: ["Sauce tomate", "Fromage", "Gorgonzola", "Bleu", "Chèvre"],
+      price1P: "11.50",
+      price2P: "13.50",
+    },
+    {
+      name: "Paysanne",
+      ingredients: ["Sauce tomate", "Fromage", "Lardons fumés", "Crème fraîche"],
+      price1P: "11.00",
+      price2P: "13.50",
+    },
+    {
+      name: "Orientale",
+      ingredients: ["Sauce tomate", "Fromage", "Chorizo", "Merguez", "Poivrons"],
+      price1P: "11.50",
+      price2P: "14.00",
+    },
+    {
+      name: "Bolo",
+      ingredients: ["Sauce tomate", "Fromage", "Viande hachée", "Bolognaise", "Tomates fraîches", "Œuf"],
+      price1P: "11.50",
+      price2P: "13.50",
+    },
+    {
+      name: "Pizza Burger",
+      ingredients: ["Sauce tomate", "Viande hachée", "Oignons", "Bacon", "Cheddar", "Sauce burger"],
+      price1P: "12.50",
+      price2P: "14.50",
+    },
+    {
+      name: "Bacon",
+      ingredients: ["Sauce tomate", "Fromage", "Lardons", "Bacon"],
+      price1P: "11.50",
+      price2P: "13.00",
+    },
+    {
+      name: "Bolo du Chef",
+      ingredients: ["Sauce tomate", "Viande hachée", "Bolognaise", "Reblochon", "Œuf", "Bacon"],
+      price1P: "12.50",
+      price2P: "14.50",
+    },
+    {
+      name: "Calzone",
+      ingredients: ["Jambon", "Champignons", "Œuf"],
+      price1P: "13.00",
+    },
+    {
+      name: "Sami",
+      ingredients: ["Jambon", "Lardons fumés", "Bacon", "Chorizo", "Merguez", "Reblochon", "Œuf"],
+      price1P: "12.50",
+      price2P: "14.50",
+    },
+    {
+      name: "Chevreau",
+      ingredients: ["Jambon", "Chèvre"],
+      price1P: "11.00",
+      price2P: "13.00",
+    },
+    {
+      name: "Kébab",
+      ingredients: ["Viande à kébab", "Tomates fraîches", "Sauce kébab"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Raclette",
+      ingredients: ["Bacon", "Lardons fumés", "Fromage à raclette"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Campagnarde",
+      ingredients: ["Pommes de terre", "Oignons", "Champignons", "Lardons fumés"],
+      price1P: "12.50",
+      price2P: "14.50",
+    },
+    {
+      name: "Savoyarde",
+      ingredients: ["Pommes de terre", "Lardons fumés", "Reblochon"],
+      price1P: "12.50",
+      price2P: "14.50",
+    },
+    {
+      name: "Nantaise",
+      ingredients: ["Curé nantais", "Champignons", "Jambon"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Neptune",
+      ingredients: ["Thon", "Oignons", "Tomates fraîches"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Mer du Nord",
+      ingredients: ["Saumon", "Tomates fraîches", "Crème fraîche", "Persillade"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Entre Deux Mer",
+      ingredients: ["Champignons", "Saumon", "St-Jacques", "Ciboulette", "Crème fraîche"],
+      price1P: "12.50",
+      price2P: "14.50",
+    },
+    {
+      name: "Pizza aux Anchois",
+      ingredients: ["Anchois", "Olives", "Tomates fraîches"],
+      price1P: "11.00",
+      price2P: "13.50",
+    },
+    {
+      name: "La Bergere",
+      ingredients: ["Lardon", "Oignons", "Champignons", "Chèvre"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Jambon Cru",
+      ingredients: ["Champignons", "Jambon cru", "Fromage tome"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Mini des Enfants",
+      ingredients: ["Jambon"],
+      price1P: "5.50",
+    },
+  ],
+  "Pizzas Blanches": [
+    {
+      name: "La P'tite Bretonne",
+      ingredients: ["Crème fraîche", "St-Jacques", "Fondu de poireaux", "Crevettes", "Fromage"],
+      price1P: "12.50",
+      price2P: "14.50",
+      isSeafood: true,
+    },
+    {
+      name: "Lucille",
+      ingredients: ["Crème fraîche", "Oignons", "Lardons", "Fromage"],
+      price1P: "12.00",
+      price2P: "13.50",
+    },
+    {
+      name: "Chevre-Miel",
+      ingredients: ["Crème fraîche", "Fromage", "Jambon", "Chèvre", "Miel", "Olives"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Hawaïenne",
+      ingredients: ["Crème fraîche", "Fromage", "Jambon", "Ananas", "Olives"],
+      price1P: "12.00",
+      price2P: "14.00",
+    },
+    {
+      name: "Indienne",
+      ingredients: ["Crème fraîche", "Filet de poulet", "Curry", "Poivrons", "Olives"],
+      price1P: "12.00",
+      price2P: "14.50",
+    },
+    {
+      name: "Midi",
+      ingredients: ["Crème fraîche", "Jambon cru", "Pommes de terre", "Raclette", "Olives"],
+      price1P: "12.50",
+      price2P: "14.50",
+    },
+    {
+      name: "La Normande",
+      ingredients: ["Lardons", "Champignons", "Camembert", "Olives"],
+      price1P: "12.00",
+      price2P: "14.50",
+    },
+  ],
+};
 
 const Index = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [showVegetarian, setShowVegetarian] = useState(false);
+  const [showSeafood, setShowSeafood] = useState(false);
+
+  const filterPizzas = (pizzas) => {
+    return pizzas.filter((pizza) => {
+      const matchesSearch = 
+        pizza.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        pizza.ingredients.some(ing => ing.toLowerCase().includes(searchTerm.toLowerCase()));
+      
+      const matchesVegetarian = !showVegetarian || pizza.isVegetarian;
+      const matchesSeafood = !showSeafood || pizza.isSeafood;
+
+      return matchesSearch && matchesVegetarian && matchesSeafood;
+    });
+  };
+
   return (
-    <div className="relative bg-gradient-to-b from-pizza-100 to-pizza-50">
-      {/* Hero Section avec fond dégradé */}
-      <div className="relative h-[60vh] overflow-hidden bg-gradient-to-r from-pizza-800 to-pizza-600">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80')",
-          }}
-        />
+    <div className="min-h-screen bg-gradient-to-br from-pizza-100 via-white to-pizza-50">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl md:text-6xl font-bold text-pizza-900 mb-4">
+            Pierrick Pizza
+          </h1>
+          <p className="text-xl text-pizza-700">
+            Les meilleures pizzas artisanales de Bourgneuf en Retz
+          </p>
+        </motion.div>
 
-        <div className="relative h-full flex items-center justify-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto px-4"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Pierrick Pizza
-            </h1>
-            <p className="text-xl text-white/90 mb-8">
-              Les meilleures pizzas artisanales de Bourgneuf en Retz
-            </p>
-          </motion.div>
+        {/* Search and Filters */}
+        <div className="mb-8 space-y-4">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <Input
+              type="text"
+              placeholder="Rechercher une pizza ou un ingrédient..."
+              className="pl-10 w-full"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedCategory("all")}
+              className={`px-4 py-2 rounded-full ${
+                selectedCategory === "all"
+                  ? "bg-pizza-600 text-white"
+                  : "bg-white text-pizza-600 border border-pizza-600"
+              }`}
+            >
+              Toutes
+            </button>
+            {Object.keys(pizzaMenu).map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-full ${
+                  selectedCategory === category
+                    ? "bg-pizza-600 text-white"
+                    : "bg-white text-pizza-600 border border-pizza-600"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+            <button
+              onClick={() => setShowVegetarian(!showVegetarian)}
+              className={`px-4 py-2 rounded-full ${
+                showVegetarian
+                  ? "bg-green-600 text-white"
+                  : "bg-white text-green-600 border border-green-600"
+              }`}
+            >
+              🥬 Végétarien
+            </button>
+            <button
+              onClick={() => setShowSeafood(!showSeafood)}
+              className={`px-4 py-2 rounded-full ${
+                showSeafood
+                  ? "bg-blue-600 text-white"
+                  : "bg-white text-blue-600 border border-blue-600"
+              }`}
+            >
+              🐟 Fruits de mer
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* Menu Section */}
-      <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {/* Menu Display */}
+        <div className="space-y-12">
+          {Object.entries(pizzaMenu).map(([category, pizzas]) => {
+            if (selectedCategory !== "all" && selectedCategory !== category) return null;
+            
+            const filteredPizzas = filterPizzas(pizzas);
+            if (filteredPizzas.length === 0) return null;
+
+            return (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-2xl font-bold text-pizza-800 mb-6 flex items-center gap-2">
+                  <Pizza className="w-6 h-6" />
+                  {category}
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredPizzas.map((pizza) => (
+                    <motion.div
+                      key={pizza.name}
+                      className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-pizza-200 hover:shadow-xl transition-all duration-300"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-lg font-semibold text-pizza-900">
+                          {pizza.name}
+                        </h3>
+                        <div className="text-right">
+                          <div className="text-sm text-pizza-600">1 pers: {pizza.price1P}€</div>
+                          <div className="text-sm text-pizza-600">2 pers: {pizza.price2P}€</div>
+                        </div>
+                      </div>
+                      
+                      <p className="text-sm text-pizza-700">
+                        {pizza.ingredients.join(", ")}
+                      </p>
+                      
+                      <div className="mt-2 flex gap-1">
+                        {pizza.isVegetarian && (
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Végétarien
+                          </span>
+                        )}
+                        {pizza.isSeafood && (
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                            Fruits de mer
+                          </span>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Supplements Section */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-12 p-6 bg-white/90 rounded-xl shadow-lg"
         >
-          <h2 className="text-3xl font-bold text-pizza-900 mb-4">Notre Menu</h2>
-          <p className="text-lg text-pizza-700">Des pizzas préparées avec passion</p>
+          <h3 className="text-xl font-semibold text-pizza-800 mb-4">Suppléments</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-pizza-700">
+            <div>Œuf: 0,50€</div>
+            <div>Légume: 1,00€</div>
+            <div>Viande: 2,00€</div>
+            <div>Fromage: 1,50€</div>
+          </div>
         </motion.div>
-
-        <div className="space-y-16">
-          {menuItems.map((category, categoryIndex) => (
-            <motion.div
-              key={category.category}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.2 }}
-              className="relative"
-            >
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-pizza-800 mb-2 inline-flex items-center gap-2">
-                  <Pizza className="w-6 h-6" />
-                  {category.category}
-                </h2>
-                <p className="text-pizza-600 italic">{category.description}</p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {category.items.map((item, itemIndex) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: itemIndex * 0.1 }}
-                    className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-pizza-200 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group"
-                  >
-                    <div className="absolute top-0 right-0 p-2 space-x-1">
-                      {item.isSpicy && (
-                        <span className="inline-flex items-center text-red-500" title="Piquant">
-                          <Flame className="w-5 h-5" />
-                        </span>
-                      )}
-                      {item.isChefSpecial && (
-                        <span className="inline-flex items-center text-pizza-600" title="Spécialité du chef">
-                          <ChefHat className="w-5 h-5" />
-                        </span>
-                      )}
-                    </div>
-                    
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-lg font-semibold text-pizza-900 group-hover:text-pizza-600 transition-colors">
-                        {item.name}
-                      </h3>
-                      <span className="text-pizza-600 font-medium text-lg">
-                        {item.price}€
-                      </span>
-                    </div>
-                    <p className="text-pizza-700 text-sm">{item.description}</p>
-                    
-                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-pizza-400 to-pizza-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Hours Section avec fond dégradé */}
-      <div className="py-20 bg-gradient-to-t from-pizza-100 to-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-3xl font-bold text-pizza-900 mb-8">
-              Nos Horaires
-            </h2>
-            <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm">
-                <h3 className="font-semibold text-pizza-800 mb-2">
-                  Mardi - Dimanche
-                </h3>
-                <p className="text-pizza-700">11h30 - 14h</p>
-                <p className="text-pizza-700">18h - 22h</p>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm">
-                <h3 className="font-semibold text-pizza-800 mb-2">Lundi</h3>
-                <p className="text-pizza-700">Fermé</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
       </div>
     </div>
   );
