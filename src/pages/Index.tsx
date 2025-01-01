@@ -4,6 +4,7 @@ import { RestaurantInfo } from "@/components/RestaurantInfo";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { MenuFilters } from "@/components/MenuFilters";
 import { menuData } from "@/data/menuData";
+import { Plus, Egg, Carrot, Beef, Cheese, Image } from "lucide-react";
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -73,11 +74,47 @@ const Index = () => {
 
         <div className="mt-12 p-6 bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700">
           <h3 className="text-xl font-semibold text-pizza-100 mb-4">Suppléments</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-pizza-200">
-            <div>Œuf: 0,50€</div>
-            <div>Légume: 1,00€</div>
-            <div>Viande: 2,00€</div>
-            <div>Fromage: 1,50€</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="flex items-center space-x-2 text-pizza-200">
+              <Egg className="w-5 h-5" />
+              <span>Œuf: 0,50€</span>
+            </div>
+            <div className="flex items-center space-x-2 text-pizza-200">
+              <Carrot className="w-5 h-5" />
+              <span>Légume: 1,00€</span>
+            </div>
+            <div className="flex items-center space-x-2 text-pizza-200">
+              <Beef className="w-5 h-5" />
+              <span>Viande: 2,00€</span>
+            </div>
+            <div className="flex items-center space-x-2 text-pizza-200">
+              <Cheese className="w-5 h-5" />
+              <span>Fromage: 1,50€</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <h3 className="text-xl font-semibold text-pizza-100 mb-6 flex items-center gap-2">
+            <Image className="w-6 h-6" />
+            Notre pizzeria en images
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <img
+              src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=60"
+              alt="Pizza margherita traditionnelle"
+              className="rounded-lg w-full h-64 object-cover hover:opacity-90 transition-opacity"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&auto=format&fit=crop&q=60"
+              alt="Notre four à pizza traditionnel"
+              className="rounded-lg w-full h-64 object-cover hover:opacity-90 transition-opacity"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1542834369-f10ebf06d3e0?w=800&auto=format&fit=crop&q=60"
+              alt="Notre restaurant"
+              className="rounded-lg w-full h-64 object-cover hover:opacity-90 transition-opacity"
+            />
           </div>
         </div>
       </div>
