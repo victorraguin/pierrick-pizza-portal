@@ -64,9 +64,28 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-100">
-          <p className="text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} Pierrick Pizza. Tous droits réservés.
-          </p>
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-500 text-sm">
+              © {new Date().getFullYear()} Pierrick Pizza. Tous droits réservés.
+            </p>
+            <div className="flex items-center space-x-4 text-sm">
+              <a
+                href="/mentions-legales"
+                className="text-gray-500 hover:text-pizza-500 transition-colors"
+              >
+                Mentions légales
+              </a>
+              <span className="text-gray-300">|</span>
+              <a
+                href="https://victorraguin.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-pizza-500 transition-colors"
+              >
+                Site créé par Victor Raguin
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

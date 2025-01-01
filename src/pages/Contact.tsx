@@ -26,7 +26,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="py-12 bg-white">
+    <div className="py-12 bg-gradient-to-br from-pizza-900 via-pizza-800 to-pizza-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,8 +34,8 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact</h1>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-4xl font-bold text-pizza-100 mb-4">Contact</h1>
+          <p className="text-lg text-pizza-200">
             Une question ? N'hésitez pas à nous contacter
           </p>
         </motion.div>
@@ -48,34 +48,34 @@ const Contact = () => {
           >
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h2 className="text-2xl font-semibold text-pizza-100 mb-6">
                   Informations
                 </h2>
                 <div className="space-y-4">
                   <div className="flex items-start">
-                    <Phone className="w-5 h-5 text-pizza-600 mt-1 mr-3" />
+                    <Phone className="w-5 h-5 text-pizza-300 mt-1 mr-3" />
                     <div>
-                      <p className="font-medium text-gray-900">Téléphone</p>
+                      <p className="font-medium text-pizza-100">Téléphone</p>
                       <a
                         href="tel:0240821068"
-                        className="text-gray-600 hover:text-pizza-600 transition-colors"
+                        className="text-pizza-200 hover:text-pizza-300 transition-colors"
                       >
                         02 40 82 10 68
                       </a>
                       <br />
                       <a
                         href="tel:0681404029"
-                        className="text-gray-600 hover:text-pizza-600 transition-colors"
+                        className="text-pizza-200 hover:text-pizza-300 transition-colors"
                       >
                         06 81 40 40 29
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <MapPin className="w-5 h-5 text-pizza-600 mt-1 mr-3" />
+                    <MapPin className="w-5 h-5 text-pizza-300 mt-1 mr-3" />
                     <div>
-                      <p className="font-medium text-gray-900">Adresse</p>
-                      <p className="text-gray-600">
+                      <p className="font-medium text-pizza-100">Adresse</p>
+                      <p className="text-pizza-200">
                         4 Rue des Jaunins
                         <br />
                         Bourgneuf en Retz
@@ -96,7 +96,7 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-pizza-100 mb-1"
                 >
                   Nom
                 </label>
@@ -107,12 +107,13 @@ const Contact = () => {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   required
+                  className="bg-pizza-800/50 border-pizza-700 text-pizza-100 placeholder:text-pizza-400"
                 />
               </div>
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-pizza-100 mb-1"
                 >
                   Prénom
                 </label>
@@ -123,12 +124,13 @@ const Contact = () => {
                     setFormData({ ...formData, firstName: e.target.value })
                   }
                   required
+                  className="bg-pizza-800/50 border-pizza-700 text-pizza-100 placeholder:text-pizza-400"
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-pizza-100 mb-1"
                 >
                   Email
                 </label>
@@ -140,12 +142,13 @@ const Contact = () => {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   required
+                  className="bg-pizza-800/50 border-pizza-700 text-pizza-100 placeholder:text-pizza-400"
                 />
               </div>
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-pizza-100 mb-1"
                 >
                   Téléphone
                 </label>
@@ -157,12 +160,13 @@ const Contact = () => {
                     setFormData({ ...formData, phone: e.target.value })
                   }
                   required
+                  className="bg-pizza-800/50 border-pizza-700 text-pizza-100 placeholder:text-pizza-400"
                 />
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-pizza-100 mb-1"
                 >
                   Message
                 </label>
@@ -173,7 +177,7 @@ const Contact = () => {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   required
-                  className="min-h-[150px]"
+                  className="min-h-[150px] bg-pizza-800/50 border-pizza-700 text-pizza-100 placeholder:text-pizza-400"
                 />
               </div>
               <Button
