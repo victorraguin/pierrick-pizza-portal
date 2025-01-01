@@ -4,6 +4,17 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 export const RestaurantInfo = () => {
   return (
     <div className="mb-12 space-y-6 animate-fadeIn">
+      <div 
+        className="w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-8 relative"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80"
+          alt="Pizza artisanale"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-pizza-900 to-transparent" />
+      </div>
+
       <div className="text-center space-y-2">
         <h1 className="text-4xl md:text-6xl font-bold text-pizza-100 mb-4">
           Pierrick Pizza
