@@ -1,8 +1,15 @@
-import { motion } from "framer-motion";
-import { Search, Filter } from "lucide-react";
 import { useState } from "react";
+import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { MenuTable } from "@/components/MenuTable";
+import { RestaurantInfo } from "@/components/RestaurantInfo";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+
+const Index = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [showVegetarian, setShowVegetarian] = useState(false);
+  const [showSeafood, setShowSeafood] = useState(false);
 
 const pizzaMenu = {
   "Pizzas Sauce Tomate": [
@@ -229,14 +236,8 @@ const pizzaMenu = {
   ],
 };
 
-const Index = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [showVegetarian, setShowVegetarian] = useState(false);
-  const [showSeafood, setShowSeafood] = useState(false);
-
   const filterPizzas = (pizzas) => {
-    return pizzas.filter((pizza) => {
+    const filteredPizzas = pizzas.filter((pizza) => {
       const matchesSearch = 
         pizza.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         pizza.ingredients.some(ing => ing.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -246,24 +247,19 @@ const Index = () => {
 
       return matchesSearch && matchesVegetarian && matchesSeafood;
     });
+
+    return filteredPizzas;
   };
+
+  const hasResults = Object.entries(pizzaMenu).some(([category, pizzas]) => {
+    if (selectedCategory !== "all" && selectedCategory !== category) return false;
+    return filterPizzas(pizzas).length > 0;
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pizza-900 via-pizza-800 to-pizza-900">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold text-pizza-100 mb-4">
-            Pierrick Pizza
-          </h1>
-          <p className="text-xl text-pizza-300">
-            Les meilleures pizzas artisanales de Bourgneuf en Retz
-          </p>
-        </motion.div>
+        <RestaurantInfo />
 
         {/* Search and Filters */}
         <div className="mb-8 space-y-4">
@@ -325,6 +321,15 @@ const Index = () => {
           </div>
         </div>
 
+        {/* No Results Message */}
+        {!hasResults && (
+          <Alert className="mb-8 bg-pizza-800/50 border-pizza-700">
+            <AlertDescription className="text-pizza-300 text-center">
+              Aucune pizza ne correspond à votre recherche
+            </AlertDescription>
+          </Alert>
+        )}
+
         {/* Menu Tables */}
         <div className="space-y-12">
           {Object.entries(pizzaMenu).map(([category, pizzas]) => {
@@ -344,12 +349,7 @@ const Index = () => {
         </div>
 
         {/* Supplements Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 p-6 bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700"
-        >
+        <div className="mt-12 p-6 bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700">
           <h3 className="text-xl font-semibold text-pizza-100 mb-4">Suppléments</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-pizza-200">
             <div>Œuf: 0,50€</div>
@@ -357,7 +357,7 @@ const Index = () => {
             <div>Viande: 2,00€</div>
             <div>Fromage: 1,50€</div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
