@@ -4,7 +4,7 @@ import { RestaurantInfo } from "@/components/RestaurantInfo";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { MenuFilters } from "@/components/MenuFilters";
 import { menuData } from "@/data/menuData";
-import { Plus, Egg, Carrot, Beef, Cheese, Image } from "lucide-react";
+import { Plus, Egg, Carrot, Beef, Pizza, Image } from "lucide-react";
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -88,7 +88,7 @@ const Index = () => {
               <span>Viande: 2,00€</span>
             </div>
             <div className="flex items-center space-x-2 text-pizza-200">
-              <Cheese className="w-5 h-5" />
+              <Pizza className="w-5 h-5" />
               <span>Fromage: 1,50€</span>
             </div>
           </div>
