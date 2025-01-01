@@ -8,19 +8,19 @@ const locations = [
     name: "Pierrick Pizza - Restaurant",
     type: "restaurant",
     address: "1 Rue de la Pizza, 44580 Bourgneuf en Retz",
-    coordinates: [-1.9876, 47.0123], // À remplacer par les coordonnées réelles
+    coordinates: [-1.9876, 47.0123] as [number, number], // Type assertion pour satisfaire LngLatLike
   },
   {
     name: "Distributeur Centre-ville",
     type: "distributeur",
     address: "Place du Marché, 44580 Bourgneuf en Retz",
-    coordinates: [-1.9856, 47.0143], // À remplacer par les coordonnées réelles
+    coordinates: [-1.9856, 47.0143] as [number, number],
   },
   {
     name: "Distributeur Zone Commerciale",
     type: "distributeur",
     address: "Zone Commerciale, 44580 Bourgneuf en Retz",
-    coordinates: [-1.9896, 47.0103], // À remplacer par les coordonnées réelles
+    coordinates: [-1.9896, 47.0103] as [number, number],
   },
 ];
 
