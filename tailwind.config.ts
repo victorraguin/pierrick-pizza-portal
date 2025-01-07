@@ -25,16 +25,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         pizza: {
-          50: "#FFF9F5",
-          100: "#FFE0CC",
-          200: "#FFBE94",
-          300: "#FF9D63",
-          400: "#FF7C32",
-          500: "#FF5B01",
-          600: "#CC4800",
-          700: "#993600",
-          800: "#662400",
-          900: "#331200",
+          50: "#F2FCE2",  // Light olive green
+          100: "#E6F4D7", // Softer olive
+          200: "#C8E6B4", // Muted olive
+          300: "#9ED178",  // Italian green
+          400: "#7AB948",  // Basil green
+          500: "#4C721D",  // Deep olive
+          600: "#3A5816",  // Forest green
+          700: "#2A4010",  // Dark olive
+          800: "#1A2809",  // Very dark olive
+          900: "#0D1405",  // Almost black olive
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",

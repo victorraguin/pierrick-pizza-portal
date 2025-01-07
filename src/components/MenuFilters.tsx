@@ -27,11 +27,11 @@ export const MenuFilters = ({
   return (
     <div className="mb-8 space-y-4">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pizza-400" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
         <Input
           type="text"
           placeholder="Rechercher un plat ou un ingrédient..."
-          className="pl-10 w-full bg-pizza-800/50 border-pizza-700 text-pizza-100 placeholder:text-pizza-400"
+          className="pl-10 w-full bg-[#1A1F2C]/50 border-pizza-700/30 text-white placeholder:text-gray-400"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -42,8 +42,8 @@ export const MenuFilters = ({
           onClick={() => setSelectedCategory("all")}
           className={`px-4 py-2 rounded-full transition-colors ${
             selectedCategory === "all"
-              ? "bg-pizza-600 text-white"
-              : "bg-pizza-800/50 text-pizza-300 border border-pizza-600"
+              ? "bg-pizza-300 text-[#1A1F2C]"
+              : "bg-[#1A1F2C]/50 text-pizza-300 border border-pizza-300"
           }`}
         >
           Tout
@@ -54,8 +54,8 @@ export const MenuFilters = ({
             onClick={() => setSelectedCategory(category)}
             className={`px-4 py-2 rounded-full transition-colors ${
               selectedCategory === category
-                ? "bg-pizza-600 text-white"
-                : "bg-pizza-800/50 text-pizza-300 border border-pizza-600"
+                ? "bg-pizza-300 text-[#1A1F2C]"
+                : "bg-[#1A1F2C]/50 text-pizza-300 border border-pizza-300"
             }`}
           >
             {category}
@@ -65,8 +65,8 @@ export const MenuFilters = ({
           onClick={() => setShowVegetarian(!showVegetarian)}
           className={`px-4 py-2 rounded-full transition-colors ${
             showVegetarian
-              ? "bg-green-600 text-white"
-              : "bg-pizza-800/50 text-green-300 border border-green-600"
+              ? "bg-pizza-300 text-[#1A1F2C]"
+              : "bg-[#1A1F2C]/50 text-pizza-300 border border-pizza-300"
           }`}
         >
           🥬 Végétarien
@@ -75,8 +75,8 @@ export const MenuFilters = ({
           onClick={() => setShowSeafood(!showSeafood)}
           className={`px-4 py-2 rounded-full transition-colors ${
             showSeafood
-              ? "bg-blue-600 text-white"
-              : "bg-pizza-800/50 text-blue-300 border border-blue-600"
+              ? "bg-pizza-300 text-[#1A1F2C]"
+              : "bg-[#1A1F2C]/50 text-pizza-300 border border-pizza-300"
           }`}
         >
           🐟 Fruits de mer
