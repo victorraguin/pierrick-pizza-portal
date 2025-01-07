@@ -42,8 +42,8 @@ export const MenuFilters = ({
           onClick={() => setSelectedCategory("all")}
           className={`px-4 py-2 rounded-full transition-colors ${
             selectedCategory === "all"
-              ? "bg-pizza-300 text-[#1A1F2C]"
-              : "bg-[#1A1F2C]/50 text-pizza-300 border border-pizza-300"
+              ? "bg-pizza-400 text-pizza-100"
+              : "bg-pizza-600/50 text-pizza-200 border border-pizza-300"
           }`}
         >
           Tout
@@ -65,8 +65,8 @@ export const MenuFilters = ({
           onClick={() => setShowVegetarian(!showVegetarian)}
           className={`px-4 py-2 rounded-full transition-colors ${
             showVegetarian
-              ? "bg-pizza-300 text-[#1A1F2C]"
-              : "bg-[#1A1F2C]/50 text-pizza-300 border border-pizza-300"
+              ? "bg-pizza-400 text-pizza-100"
+              : "bg-pizza-600/50 text-pizza-200 border border-pizza-300"
           }`}
         >
           🥬 Végétarien
@@ -75,8 +75,8 @@ export const MenuFilters = ({
           onClick={() => setShowSeafood(!showSeafood)}
           className={`px-4 py-2 rounded-full transition-colors ${
             showSeafood
-              ? "bg-pizza-300 text-[#1A1F2C]"
-              : "bg-[#1A1F2C]/50 text-pizza-300 border border-pizza-300"
+              ? "bg-pizza-400 text-pizza-100"
+              : "bg-pizza-600/50 text-pizza-200 border border-pizza-300"
           }`}
         >
           🐟 Fruits de mer

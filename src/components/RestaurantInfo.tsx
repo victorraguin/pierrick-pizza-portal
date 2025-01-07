@@ -10,7 +10,7 @@ export const RestaurantInfo = () => {
           alt="Pizza artisanale italienne"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F2C] to-transparent opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-pizza-800 to-transparent opacity-90" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center space-y-4 px-4">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
@@ -24,7 +24,7 @@ export const RestaurantInfo = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Alert className="bg-[#1A1F2C]/80 border-pizza-700/30 backdrop-blur-sm">
+        <Alert className="bg-pizza-600/80 border-pizza-400/30 backdrop-blur-sm">
           <MapPin className="h-5 w-5 text-pizza-300" />
           <AlertDescription className="text-gray-200">
             <strong className="text-white block mb-1">Adresse</strong>
@@ -34,7 +34,7 @@ export const RestaurantInfo = () => {
           </AlertDescription>
         </Alert>
 
-        <Alert className="bg-[#1A1F2C]/80 border-pizza-700/30 backdrop-blur-sm">
+        <Alert className="bg-pizza-600/80 border-pizza-400/30 backdrop-blur-sm">
           <Clock className="h-5 w-5 text-pizza-300" />
           <AlertDescription className="text-gray-200">
             <strong className="text-white block mb-1">Horaires du magasin</strong>
@@ -44,7 +44,7 @@ export const RestaurantInfo = () => {
           </AlertDescription>
         </Alert>
 
-        <Alert className="bg-[#1A1F2C]/80 border-pizza-700/30 backdrop-blur-sm">
+        <Alert className="bg-pizza-600/80 border-pizza-400/30 backdrop-blur-sm">
           <Phone className="h-5 w-5 text-pizza-300" />
           <AlertDescription className="text-gray-200">
             <strong className="text-white block mb-1">Contact</strong>
@@ -53,7 +53,7 @@ export const RestaurantInfo = () => {
           </AlertDescription>
         </Alert>
 
-        <Alert className="bg-[#1A1F2C]/80 border-pizza-700/30 backdrop-blur-sm">
+        <Alert className="bg-pizza-600/80 border-pizza-400/30 backdrop-blur-sm">
           <Truck className="h-5 w-5 text-pizza-300" />
           <AlertDescription className="text-gray-200">
             <strong className="text-white block mb-1">Le camion (18h-22h)</strong>
