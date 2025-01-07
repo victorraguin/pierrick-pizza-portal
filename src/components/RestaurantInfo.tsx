@@ -5,11 +5,13 @@ export const RestaurantInfo = () => {
   return (
     <div className="mb-12 space-y-6 animate-fadeIn">
       <div className="w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-8 relative">
-        <img
-          src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&q=80"
-          alt="Pizza artisanale italienne"
-          className="w-full h-full object-cover"
-        />
+        <div className="absolute inset-0 w-full h-full" style={{ transform: 'translateZ(-1px) scale(2)', zIndex: -1 }}>
+          <img
+            src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&q=80"
+            alt="Pizza artisanale italienne"
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-pizza-800 to-transparent opacity-90" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center space-y-4 px-4">

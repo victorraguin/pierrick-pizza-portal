@@ -7,21 +7,15 @@ import { menuData } from "@/data/menuData";
 import { Plus, Egg, Carrot, Beef, Pizza, Image, Star } from "lucide-react";
 
 const Index = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showVegetarian, setShowVegetarian] = useState(false);
   const [showSeafood, setShowSeafood] = useState(false);
 
   const filterItems = (items) => {
     return items.filter((item) => {
-      const matchesSearch = 
-        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.ingredients.some(ing => ing.toLowerCase().includes(searchTerm.toLowerCase()));
-      
       const matchesVegetarian = !showVegetarian || item.isVegetarian;
       const matchesSeafood = !showSeafood || item.isSeafood;
-
-      return matchesSearch && matchesVegetarian && matchesSeafood;
+      return matchesVegetarian && matchesSeafood;
     });
   };
 
@@ -32,12 +26,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pizza-900 via-pizza-800 to-pizza-900">
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-12 perspective-1000">
         <RestaurantInfo />
 
         <MenuFilters
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
           showVegetarian={showVegetarian}
@@ -56,18 +48,33 @@ const Index = () => {
         )}
 
         <div className="space-y-12">
-          {Object.entries(menuData).map(([category, items]) => {
+          {Object.entries(menuData).map(([category, items], index) => {
             if (selectedCategory !== "all" && selectedCategory !== category) return null;
             
             const filteredItems = filterItems(items);
             if (filteredItems.length === 0) return null;
 
             return (
-              <MenuTable 
-                key={category}
-                category={category}
-                items={filteredItems}
-              />
+              <div key={category}>
+                {index > 0 && (
+                  <div className="relative h-[200px] md:h-[300px] my-16 rounded-xl overflow-hidden transform-gpu">
+                    <img
+                      src={[
+                        "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=60",
+                        "https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&auto=format&fit=crop&q=60",
+                        "https://images.unsplash.com/photo-1542834369-f10ebf06d3e0?w=800&auto=format&fit=crop&q=60"
+                      ][index % 3]}
+                      alt={`Transition ${category}`}
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-pizza-900 to-transparent" />
+                  </div>
+                )}
+                <MenuTable 
+                  category={category}
+                  items={filteredItems}
+                />
+              </div>
             );
           })}
         </div>
