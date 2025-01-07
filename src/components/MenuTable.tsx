@@ -22,11 +22,11 @@ export const MenuTable = ({ items, category }: MenuTableProps) => {
   const getBgColor = (category: string) => {
     switch (category) {
       case "Pizzas Sauce Tomate":
-        return "bg-gradient-to-br from-[#8B0000]/90 via-pizza-800/95 to-black/90 border-[#8B0000]/30";
+        return "bg-gradient-to-br from-pizza-800/90 via-pizza-800/95 to-black/90 border-pizza-800/30";
       case "Pizzas Blanches":
         return "bg-gradient-to-br from-slate-900/90 via-slate-800/95 to-black/90 border-slate-800/30";
       case "Nos Paninis":
-        return "bg-gradient-to-br from-[#006400]/90 via-zinc-800/95 to-black/90 border-zinc-800/30";
+        return "bg-gradient-to-br from-zinc-900/90 via-zinc-800/95 to-black/90 border-zinc-800/30";
       case "Nos Formules":
         return "bg-gradient-to-br from-amber-900/90 via-stone-800/95 to-black/90 border-stone-800/30";
       case "Nos Desserts":
@@ -63,12 +63,12 @@ export const MenuTable = ({ items, category }: MenuTableProps) => {
                   <div>
                     {pizza.name}
                     {pizza.isVegetarian && (
-                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-[#006400]/50 text-green-300 border border-green-500/20">
+                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-950/50 text-emerald-300 border border-emerald-500/20">
                         Végétarien
                       </span>
                     )}
                     {pizza.isSeafood && (
-                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-[#8B0000]/50 text-red-300 border border-red-500/20">
+                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-rose-950/50 text-rose-300 border border-rose-500/20">
                         Fruits de mer
                       </span>
                     )}
