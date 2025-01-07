@@ -17,14 +17,6 @@ export const MenuSection = () => {
     'Nos Formules',
   ];
 
-  const hasResults = Object.entries(menuData).some(([category, items]) => {
-    if (selectedCategory === 'all') {
-      return applicableCategories.includes(category) && filterItems(items, category).length > 0;
-    }
-    if (selectedCategory !== category) return false;
-    return filterItems(items, category).length > 0;
-  });
-
   const filterItems = (items: any[], category: string) => {
     const isApplicableCategory = applicableCategories.includes(category);
 
@@ -43,6 +35,14 @@ export const MenuSection = () => {
       return matchesSearch && matchesVegetarian && matchesSeafood;
     });
   };
+
+  const hasResults = Object.entries(menuData).some(([category, items]) => {
+    if (selectedCategory === 'all') {
+      return applicableCategories.includes(category) && filterItems(items, category).length > 0;
+    }
+    if (selectedCategory !== category) return false;
+    return filterItems(items, category).length > 0;
+  });
 
   return (
     <div className="space-y-12 relative">
