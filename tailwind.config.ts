@@ -25,16 +25,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         pizza: {
-          50: "#FFF7F5",
-          100: "#FDE1D3",  // Soft peach
-          200: "#F2FCE2",  // Soft green
-          300: "#FEF7CD",  // Soft yellow
-          400: "#F1F0FB",  // Soft gray
-          500: "#333232",  // Main color (gray)
-          600: "#2D2C2C",
-          700: "#FF5B01",  // Orange accent
-          800: "#662400",  // Dark orange
-          900: "#331200",  // Very dark orange
+          50: "#FFFFFF",  // Blanc pur
+          100: "#F8F7F4",  // Blanc cassé
+          200: "#E8F5E9",  // Vert très clair
+          300: "#FEF7CD",  // Jaune doux
+          400: "#FFEBEE",  // Rouge très clair
+          500: "#4CAF50",  // Vert italien
+          600: "#2E7D32",  // Vert foncé
+          700: "#D32F2F",  // Rouge italien
+          800: "#B71C1C",  // Rouge foncé
+          900: "#1B5E20",  // Vert très foncé
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -93,6 +93,10 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeIn: "fadeIn 0.5s ease-out forwards",
         parallax: "parallax 8s ease-in-out infinite alternate",
+      },
+      backgroundImage: {
+        'pizza-pattern': "url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80')",
+        'pasta-pattern': "url('https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80')",
       },
     },
   },

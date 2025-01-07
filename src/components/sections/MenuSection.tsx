@@ -46,41 +46,51 @@ export const MenuSection = () => {
 
   return (
     <div className="space-y-12 relative">
-      <div className="absolute inset-0 bg-fixed bg-center bg-cover opacity-5 -z-10"
-           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80')" }}>
-      </div>
+      <div className="absolute inset-0 bg-fixed bg-center bg-cover opacity-5 bg-pizza-pattern" />
       
-      <MenuFilters
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-        showVegetarian={showVegetarian}
-        setShowVegetarian={setShowVegetarian}
-        showSeafood={showSeafood}
-        setShowSeafood={setShowSeafood}
-        categories={Object.keys(menuData)}
-      />
+      <div className="relative z-10">
+        <MenuFilters
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          showVegetarian={showVegetarian}
+          setShowVegetarian={setShowVegetarian}
+          showSeafood={showSeafood}
+          setShowSeafood={setShowSeafood}
+          categories={Object.keys(menuData)}
+        />
 
-      {!hasResults && (
-        <Alert className="mb-8 bg-pizza-100/50 border-pizza-200">
-          <AlertDescription className="text-pizza-500 text-center">
-            Aucun plat ne correspond à votre recherche
-          </AlertDescription>
-        </Alert>
-      )}
+        {!hasResults && (
+          <Alert className="mb-8 bg-pizza-100/50 border-pizza-200">
+            <AlertDescription className="text-pizza-500 text-center">
+              Aucun plat ne correspond à votre recherche
+            </AlertDescription>
+          </Alert>
+        )}
 
-      {Object.entries(menuData).map(([category, items]) => {
-        if (selectedCategory !== 'all' && selectedCategory !== category)
-          return null;
+        {Object.entries(menuData).map(([category, items], index) => {
+          if (selectedCategory !== 'all' && selectedCategory !== category)
+            return null;
 
-        const filteredItems = filterItems(items, category);
-        if (filteredItems.length === 0) return null;
+          const filteredItems = filterItems(items, category);
+          if (filteredItems.length === 0) return null;
 
-        return (
-          <MenuTable key={category} category={category} items={filteredItems} />
-        );
-      })}
+          return (
+            <div key={category} className="relative">
+              {index % 2 === 0 && (
+                <div className="absolute inset-0 bg-fixed bg-center bg-cover opacity-5 bg-pizza-pattern animate-parallax" />
+              )}
+              {index % 2 === 1 && (
+                <div className="absolute inset-0 bg-fixed bg-center bg-cover opacity-5 bg-pasta-pattern animate-parallax" />
+              )}
+              <div className="relative z-10">
+                <MenuTable category={category} items={filteredItems} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
