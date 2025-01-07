@@ -26,7 +26,7 @@ export const RestaurantInfo = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Alert className="bg-gradient-to-br from-slate-900/90 via-slate-800/95 to-black/90 border border-slate-800/30 backdrop-blur-sm hover:bg-slate-800/50 transition-colors duration-300">
+        <Alert className="bg-gradient-to-br from-pizza-800/90 via-pizza-800/95 to-black/90 border-pizza-800/30 backdrop-blur-sm hover:bg-pizza-800/50 transition-colors duration-300">
           <MapPin className="h-5 w-5 text-orange-400" />
           <AlertDescription className="text-gray-200">
             <strong className="text-orange-300 block mb-1">Adresse</strong>
@@ -36,7 +36,7 @@ export const RestaurantInfo = () => {
           </AlertDescription>
         </Alert>
 
-        <Alert className="bg-gradient-to-br from-zinc-900/90 via-zinc-800/95 to-black/90 border border-zinc-800/30 backdrop-blur-sm hover:bg-zinc-800/50 transition-colors duration-300">
+        <Alert className="bg-gradient-to-br from-stone-900/90 via-stone-800/95 to-black/90 border-stone-800/30 backdrop-blur-sm hover:bg-stone-800/50 transition-colors duration-300">
           <Clock className="h-5 w-5 text-orange-400" />
           <AlertDescription className="text-gray-200">
             <strong className="text-orange-300 block mb-1">Horaires du magasin</strong>
@@ -46,7 +46,7 @@ export const RestaurantInfo = () => {
           </AlertDescription>
         </Alert>
 
-        <Alert className="bg-gradient-to-br from-amber-900/90 via-stone-800/95 to-black/90 border border-stone-800/30 backdrop-blur-sm hover:bg-stone-800/50 transition-colors duration-300">
+        <Alert className="bg-gradient-to-br from-pizza-800/90 via-pizza-800/95 to-black/90 border-pizza-800/30 backdrop-blur-sm hover:bg-pizza-800/50 transition-colors duration-300">
           <Phone className="h-5 w-5 text-orange-400" />
           <AlertDescription className="text-gray-200">
             <strong className="text-orange-300 block mb-1">Contact</strong>
@@ -55,7 +55,7 @@ export const RestaurantInfo = () => {
           </AlertDescription>
         </Alert>
 
-        <Alert className="bg-gradient-to-br from-purple-900/90 via-neutral-800/95 to-black/90 border border-neutral-800/30 backdrop-blur-sm hover:bg-neutral-800/50 transition-colors duration-300">
+        <Alert className="bg-gradient-to-br from-stone-900/90 via-stone-800/95 to-black/90 border-stone-800/30 backdrop-blur-sm hover:bg-stone-800/50 transition-colors duration-300">
           <Truck className="h-5 w-5 text-orange-400" />
           <AlertDescription className="text-gray-200">
             <strong className="text-orange-300 block mb-1">Le camion (18h-22h)</strong>
@@ -67,7 +67,7 @@ export const RestaurantInfo = () => {
         </Alert>
       </div>
 
-      <Alert className="bg-gradient-to-br from-blue-900/90 via-gray-800/95 to-black/90 border border-gray-800/30 backdrop-blur-sm hover:bg-gray-800/50 transition-colors duration-300">
+      <Alert className="bg-gradient-to-br from-pizza-800/90 via-pizza-800/95 to-black/90 border-pizza-800/30 backdrop-blur-sm hover:bg-pizza-800/50 transition-colors duration-300">
         <AlertDescription className="text-gray-200 text-center">
           Distributeur de boissons et de pizzas disponible sur le parking<br />
           Nous nous déplaçons également sur des concerts et des manifestations (nombre de personnes minimum à respecter)
