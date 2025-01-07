@@ -22,19 +22,19 @@ export const MenuTable = ({ items, category }: MenuTableProps) => {
   const getBgColor = (category: string) => {
     switch (category) {
       case "Pizzas Sauce Tomate":
-        return "bg-gradient-to-br from-[#1A1F2C]/90 via-[#2C1A1A]/90 to-[#1A1F2C]/90 border-[#2C1A1A]/30";
+        return "bg-gradient-to-br from-pizza-900/80 via-pizza-800/80 to-pizza-900/80 border-pizza-800/30";
       case "Pizzas Blanches":
-        return "bg-gradient-to-br from-[#1A1F2C]/90 via-[#2A2A2C]/90 to-[#1A1F2C]/90 border-[#2A2A2C]/30";
+        return "bg-gradient-to-br from-slate-900/80 via-slate-800/80 to-slate-900/80 border-slate-800/30";
       case "Nos Paninis":
-        return "bg-gradient-to-br from-[#1A1F2C]/90 via-[#2C261A]/90 to-[#1A1F2C]/90 border-[#2C261A]/30";
+        return "bg-gradient-to-br from-zinc-900/80 via-zinc-800/80 to-zinc-900/80 border-zinc-800/30";
       case "Nos Formules":
-        return "bg-gradient-to-br from-[#1A1F2C]/90 via-[#1A2C1E]/90 to-[#1A1F2C]/90 border-[#1A2C1E]/30";
+        return "bg-gradient-to-br from-stone-900/80 via-stone-800/80 to-stone-900/80 border-stone-800/30";
       case "Nos Desserts":
-        return "bg-gradient-to-br from-[#1A1F2C]/90 via-[#2C1A29]/90 to-[#1A1F2C]/90 border-[#2C1A29]/30";
+        return "bg-gradient-to-br from-neutral-900/80 via-neutral-800/80 to-neutral-900/80 border-neutral-800/30";
       case "Nos Boissons":
-        return "bg-gradient-to-br from-[#1A1F2C]/90 via-[#1A222C]/90 to-[#1A1F2C]/90 border-[#1A222C]/30";
+        return "bg-gradient-to-br from-gray-900/80 via-gray-800/80 to-gray-900/80 border-gray-800/30";
       default:
-        return "bg-gradient-to-br from-[#1A1F2C]/90 via-[#2C1A1A]/90 to-[#1A1F2C]/90 border-[#2C1A1A]/30";
+        return "bg-gradient-to-br from-pizza-900/80 via-pizza-800/80 to-pizza-900/80 border-pizza-800/30";
     }
   };
 
