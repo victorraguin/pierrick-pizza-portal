@@ -25,16 +25,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         pizza: {
-          50: "#FFFFFF",  // Blanc pur
-          100: "#F8F7F4",  // Blanc cassé
-          200: "#E8F5E9",  // Vert très clair
-          300: "#FEF7CD",  // Jaune doux
-          400: "#FFEBEE",  // Rouge très clair
+          50: "#1A1F2C",  // Fond très sombre
+          100: "#222831",  // Fond sombre
+          200: "#E8F5E9",  // Vert clair (accent)
+          300: "#FEF7CD",  // Jaune doux (accent)
+          400: "#2C3440",  // Gris foncé
           500: "#4CAF50",  // Vert italien
           600: "#2E7D32",  // Vert foncé
           700: "#D32F2F",  // Rouge italien
-          800: "#B71C1C",  // Rouge foncé
-          900: "#1B5E20",  // Vert très foncé
+          800: "#1E262F",  // Très sombre
+          900: "#141A21",  // Noir profond
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
