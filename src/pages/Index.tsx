@@ -53,33 +53,18 @@ const Index = () => {
         )}
 
         <div className="space-y-12">
-          {Object.entries(menuData).map(([category, items], index) => {
+          {Object.entries(menuData).map(([category, items]) => {
             if (selectedCategory !== "all" && selectedCategory !== category) return null;
             
             const filteredItems = filterItems(items);
             if (filteredItems.length === 0) return null;
 
             return (
-              <div key={category}>
-                {index > 0 && (
-                  <div className="relative h-[200px] md:h-[300px] my-16 rounded-xl overflow-hidden transform-gpu">
-                    <img
-                      src={[
-                        "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=60",
-                        "https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&auto=format&fit=crop&q=60",
-                        "https://images.unsplash.com/photo-1542834369-f10ebf06d3e0?w=800&auto=format&fit=crop&q=60"
-                      ][index % 3]}
-                      alt={`Transition ${category}`}
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-pizza-900 to-transparent" />
-                  </div>
-                )}
-                <MenuTable 
-                  category={category}
-                  items={filteredItems}
-                />
-              </div>
+              <MenuTable 
+                key={category}
+                category={category}
+                items={filteredItems}
+              />
             );
           })}
         </div>
