@@ -24,22 +24,29 @@ export const MenuTable = ({ items, category }: MenuTableProps) => {
       case "Pizzas Sauce Tomate":
         return "bg-gradient-to-br from-pizza-800/90 via-pizza-800/95 to-black/90 border-pizza-800/30";
       case "Pizzas Blanches":
-        return "bg-gradient-to-br from-slate-900/90 via-slate-800/95 to-black/90 border-slate-800/30";
+        return "bg-gradient-to-br from-stone-900/90 via-stone-800/95 to-black/90 border-stone-800/30";
       case "Nos Paninis":
-        return "bg-gradient-to-br from-zinc-900/90 via-zinc-800/95 to-black/90 border-zinc-800/30";
+        return "bg-gradient-to-br from-pizza-800/90 via-pizza-800/95 to-black/90 border-pizza-800/30";
       case "Nos Formules":
-        return "bg-gradient-to-br from-amber-900/90 via-stone-800/95 to-black/90 border-stone-800/30";
+        return "bg-gradient-to-br from-stone-900/90 via-stone-800/95 to-black/90 border-stone-800/30";
       case "Nos Desserts":
-        return "bg-gradient-to-br from-purple-900/90 via-neutral-800/95 to-black/90 border-neutral-800/30";
+        return "bg-gradient-to-br from-pizza-800/90 via-pizza-800/95 to-black/90 border-pizza-800/30";
       case "Nos Boissons":
-        return "bg-gradient-to-br from-blue-900/90 via-gray-800/95 to-black/90 border-gray-800/30";
+        return "bg-gradient-to-br from-stone-900/90 via-stone-800/95 to-black/90 border-stone-800/30";
       default:
         return "bg-gradient-to-br from-pizza-900/90 via-pizza-800/95 to-black/90 border-pizza-800/30";
     }
   };
 
   return (
-    <div className="mb-12 animate-fadeIn">
+    <div className="mb-12 animate-fadeIn relative">
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <img
+          src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9"
+          alt=""
+          className="w-full h-full object-cover rounded-xl"
+        />
+      </div>
       <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
         <Pizza className="w-8 h-8 text-orange-500" />
         <span className="border-b-2 border-orange-500/50 pb-2">{category}</span>
@@ -63,12 +70,12 @@ export const MenuTable = ({ items, category }: MenuTableProps) => {
                   <div>
                     {pizza.name}
                     {pizza.isVegetarian && (
-                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-950/50 text-emerald-300 border border-emerald-500/20">
+                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-stone-800/50 text-stone-300 border border-stone-500/20">
                         Végétarien
                       </span>
                     )}
                     {pizza.isSeafood && (
-                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-rose-950/50 text-rose-300 border border-rose-500/20">
+                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-stone-800/50 text-stone-300 border border-stone-500/20">
                         Fruits de mer
                       </span>
                     )}
