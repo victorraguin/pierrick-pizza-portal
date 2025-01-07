@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Nunito', 'sans-serif'],
+        sans: ['Lato', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -28,16 +28,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         pizza: {
-          50: "#F5F5F5",   // Light gray
-          100: "#E5E5E5",  // Lighter gray
-          200: "#CCCCCC",  // Light medium gray
-          300: "#8E9196",  // Medium gray
-          400: "#403E43",  // Dark gray
-          500: "#1A1F2C",  // Dark blue-gray
-          600: "#222222",  // Very dark gray
-          700: "#1A1A1A",  // Darker gray
-          800: "#121212",  // Almost black
-          900: "#000000",  // Black
+          50: "#F5F5F5",   // Gris très clair
+          100: "#FAFAFA",  // Blanc cassé
+          200: "#F1F0FB",  // Gris doux
+          300: "#8E9196",  // Gris moyen
+          400: "#6B7280",  // Gris foncé doux
+          500: "#4A5568",  // Gris-bleu moyen
+          600: "#2D3748",  // Gris-bleu foncé
+          700: "#1A202C",  // Gris très foncé
+          800: "#171923",  // Presque noir
+          900: "#0A0B0D",  // Noir doux
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
