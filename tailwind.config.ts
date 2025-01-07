@@ -26,15 +26,15 @@ export default {
         foreground: "hsl(var(--foreground))",
         pizza: {
           50: "#FFF7F5",
-          100: "#FFE6E2",
-          200: "#FFCCCC",
-          300: "#FFB3B3",
-          400: "#FF9999",
-          500: "#333232", // Couleur principale (gris)
+          100: "#FDE1D3",  // Soft peach
+          200: "#F2FCE2",  // Soft green
+          300: "#FEF7CD",  // Soft yellow
+          400: "#F1F0FB",  // Soft gray
+          500: "#333232",  // Main color (gray)
           600: "#2D2C2C",
-          700: "#FF5B01", // Accent orange de l'ancienne palette
-          800: "#662400", // Orange foncé de l'ancienne palette
-          900: "#331200", // Orange très foncé de l'ancienne palette
+          700: "#FF5B01",  // Orange accent
+          800: "#662400",  // Dark orange
+          900: "#331200",  // Very dark orange
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -83,11 +83,16 @@ export default {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        parallax: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-20px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeIn: "fadeIn 0.5s ease-out forwards",
+        parallax: "parallax 8s ease-in-out infinite alternate",
       },
     },
   },
