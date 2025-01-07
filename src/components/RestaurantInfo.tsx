@@ -4,17 +4,18 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 export const RestaurantInfo = () => {
   return (
     <div className='mb-12 space-y-6 animate-fadeIn'>
-      <div className='w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-8 relative'>
+      <div className='relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-8'>
+        <div className='absolute inset-0 bg-black/50 z-10' />
         <img
           src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80'
           alt='Pizza artisanale'
           className='w-full h-full object-cover'
         />
-        <div className='absolute inset-0 bg-gradient-to-t from-pizza-900 to-transparent' />
+        <div className='absolute inset-0 bg-gradient-to-t from-pizza-900 to-transparent z-20' />
       </div>
 
-      <div className='text-center space-y-2'>
-        <h1 className='text-4xl md:text-6xl font-bold text-pizza-100 mb-4'>
+      <div className='text-center space-y-2 relative z-30'>
+        <h1 className='text-4xl md:text-6xl font-bold text-white mb-4'>
           Pierrick Pizza
         </h1>
         <p className='text-xl text-pizza-300'>
@@ -89,8 +90,8 @@ export const RestaurantInfo = () => {
         </Alert>
       </div>
 
-      <Alert className='bg-pizza-900/30 border-pizza-800/30'>
-        <AlertDescription className='text-pizza-200 text-center'>
+      <Alert className='bg-pizza-800/30 border-pizza-700/30'>
+        <AlertDescription className='text-pizza-300 text-center'>
           Distributeur de boissons et de pizzas disponible sur le parking
           <br />
           Nous nous déplaçons également sur des concerts et des manifestations
