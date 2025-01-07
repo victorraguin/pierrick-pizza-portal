@@ -1,4 +1,3 @@
-import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 interface MenuFiltersProps {
@@ -14,8 +13,6 @@ interface MenuFiltersProps {
 }
 
 export const MenuFilters = ({
-  searchTerm,
-  setSearchTerm,
   selectedCategory,
   setSelectedCategory,
   showVegetarian,
@@ -25,18 +22,7 @@ export const MenuFilters = ({
   categories,
 }: MenuFiltersProps) => {
   return (
-    <div className="mb-8 space-y-4">
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-        <Input
-          type="text"
-          placeholder="Rechercher un plat ou un ingrédient..."
-          className="pl-10 w-full bg-[#1A1F2C]/50 border-pizza-700/30 text-white placeholder:text-gray-400"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
-      
+    <div className="mb-8">
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => setSelectedCategory("all")}
