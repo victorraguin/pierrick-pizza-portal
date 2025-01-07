@@ -25,16 +25,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         pizza: {
-          50: "#1A1F2C",  // Fond très sombre
-          100: "#222831",  // Fond sombre
-          200: "#E8F5E9",  // Vert clair (accent)
-          300: "#FEF7CD",  // Jaune doux (accent)
-          400: "#2C3440",  // Gris foncé
-          500: "#4CAF50",  // Vert italien
-          600: "#2E7D32",  // Vert foncé
-          700: "#D32F2F",  // Rouge italien
-          800: "#1E262F",  // Très sombre
-          900: "#141A21",  // Noir profond
+          50: "#FFF9F5",
+          100: "#FFE0CC",
+          200: "#FFBE94",
+          300: "#FF9D63",
+          400: "#FF7C32",
+          500: "#FF5B01",
+          600: "#CC4800",
+          700: "#993600",
+          800: "#662400",
+          900: "#331200",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -83,20 +83,11 @@ export default {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        parallax: {
-          "0%": { transform: "translateY(0)" },
-          "100%": { transform: "translateY(-20px)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeIn: "fadeIn 0.5s ease-out forwards",
-        parallax: "parallax 8s ease-in-out infinite alternate",
-      },
-      backgroundImage: {
-        'pizza-pattern': "url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80')",
-        'pasta-pattern': "url('https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80')",
       },
     },
   },
