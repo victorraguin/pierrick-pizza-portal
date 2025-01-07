@@ -10,12 +10,15 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showVegetarian, setShowVegetarian] = useState(false);
   const [showSeafood, setShowSeafood] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filterItems = (items) => {
     return items.filter((item) => {
       const matchesVegetarian = !showVegetarian || item.isVegetarian;
       const matchesSeafood = !showSeafood || item.isSeafood;
-      return matchesVegetarian && matchesSeafood;
+      const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          item.ingredients.some(ing => ing.toLowerCase().includes(searchTerm.toLowerCase()));
+      return matchesVegetarian && matchesSeafood && (!searchTerm || matchesSearch);
     });
   };
 
@@ -25,7 +28,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pizza-900 via-pizza-800 to-pizza-900">
+    <div className="min-h-screen bg-gradient-to-br from-black via-pizza-900 to-black">
       <div className="max-w-7xl mx-auto px-4 py-12 perspective-1000">
         <RestaurantInfo />
 
@@ -36,6 +39,8 @@ const Index = () => {
           setShowVegetarian={setShowVegetarian}
           showSeafood={showSeafood}
           setShowSeafood={setShowSeafood}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
           categories={Object.keys(menuData)}
         />
 
