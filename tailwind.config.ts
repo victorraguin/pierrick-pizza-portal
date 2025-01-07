@@ -25,16 +25,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         pizza: {
-          50: "#f5f5f5",
-          100: "#e6e6e6",
-          200: "#cccccc",
-          300: "#b3b3b3",
-          400: "#999999",
-          500: "#333232", // Nouvelle couleur principale
-          600: "#2d2c2c",
-          700: "#262626",
-          800: "#1f1f1f",
-          900: "#191919",
+          50: "#FFF7F5",
+          100: "#FFE6E2",
+          200: "#FFCCCC",
+          300: "#FFB3B3",
+          400: "#FF9999",
+          500: "#333232", // Couleur principale (gris)
+          600: "#2D2C2C",
+          700: "#FF5B01", // Accent orange de l'ancienne palette
+          800: "#662400", // Orange foncé de l'ancienne palette
+          900: "#331200", // Orange très foncé de l'ancienne palette
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
