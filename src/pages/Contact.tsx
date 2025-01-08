@@ -15,14 +15,93 @@ const Contact = () => {
     phone: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Valider les données du formulaire avant l'envoi
+    if (
+      !formData.name ||
+      !formData.firstName ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.message
+    ) {
+      toast({
+        title: 'Erreur',
+        description: 'Veuillez remplir tous les champs requis.',
+        variant: 'destructive'
+      })
+      return
+    }
+
+    setIsSubmitting(true)
     toast({
-      title: 'Message envoyé',
-      description: 'Nous vous répondrons dans les plus brefs délais.'
+      title: 'Envoi en cours...',
+      description:
+        'Veuillez patienter pendant que nous envoyons votre message.',
+      duration: 2000
     })
-    setFormData({ name: '', firstName: '', email: '', phone: '', message: '' })
+
+    try {
+      const response = await fetch(
+        'https://email-server-xkja.onrender.com/api/send-email',
+        {
+          // Remplacez par l'URL de votre backend
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            to: 'contact@pierrick-pizza.fr', // Remplacez par votre adresse e-mail ou celle du destinataire
+            subject: `Nouveau message de ${formData.firstName} ${formData.name}`,
+            text: `Vous avez reçu un nouveau message de ${formData.firstName} ${formData.name} (${formData.email}, ${formData.phone}) :
+
+${formData.message}`,
+            html: `
+            <h1>Nouveau message de ${formData.firstName} ${formData.name}</h1>
+            <p><strong>Email :</strong> ${formData.email}</p>
+            <p><strong>Téléphone :</strong> ${formData.phone}</p>
+            <p><strong>Message :</strong><br/>${formData.message.replace(
+              /\n/g,
+              '<br/>'
+            )}</p>
+          `
+          })
+        }
+      )
+
+      if (response.ok) {
+        toast({
+          title: 'Message envoyé',
+          description: 'Nous vous répondrons dans les plus brefs délais.',
+          variant: 'default'
+        })
+        setFormData({
+          name: '',
+          firstName: '',
+          email: '',
+          phone: '',
+          message: ''
+        })
+      } else {
+        const errorData = await response.json()
+        throw new Error(
+          errorData.message || "Erreur lors de l'envoi de l'email"
+        )
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de l'email :", error)
+      toast({
+        title: 'Erreur',
+        description:
+          "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.",
+        variant: 'destructive'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -183,8 +262,9 @@ const Contact = () => {
               <Button
                 type='submit'
                 className='w-full bg-[#7F9651] hover:bg-[#7F9651]/80 text-white'
+                disabled={isSubmitting}
               >
-                Envoyer
+                {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
                 <Send className='ml-2 h-4 w-4' />
               </Button>
             </form>
