@@ -28,16 +28,16 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         pizza: {
-          50: "#F5F5F5",   // Gris très clair
-          100: "#FAFAFA",  // Blanc cassé
-          200: "#F1F0FB",  // Gris doux
-          300: "#8E9196",  // Gris moyen
-          400: "#6B7280",  // Gris foncé doux
-          500: "#4A5568",  // Gris-bleu moyen
-          600: "#2D3748",  // Gris-bleu foncé
-          700: "#1A202C",  // Gris très foncé
-          800: "#171923",  // Presque noir
-          900: "#0A0B0D",  // Noir doux
+          50: "#F5F5F5",
+          100: "#FAFAFA",
+          200: "#F1F0FB",
+          300: "#8E9196",
+          400: "#6B7280",
+          500: "#4A5568",
+          600: "#2D3748",
+          700: "#1A202C",
+          800: "#171923",
+          900: "#0A0B0D",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -86,11 +86,16 @@ export default {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeIn: "fadeIn 0.5s ease-out forwards",
+        "spin-slow": "spin-slow 20s linear infinite",
       },
     },
   },
