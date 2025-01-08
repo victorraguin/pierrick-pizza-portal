@@ -1,73 +1,74 @@
-import { Input } from "@/components/ui/input";
+import { Input } from '@/components/ui/input'
 
 interface MenuFiltersProps {
-  searchTerm: string;
-  setSearchTerm: (term: string) => void;
-  selectedCategory: string;
-  setSelectedCategory: (category: string) => void;
-  showVegetarian: boolean;
-  setShowVegetarian: (show: boolean) => void;
-  showSeafood: boolean;
-  setShowSeafood: (show: boolean) => void;
-  categories: string[];
+  activeFilter: string
+  setActiveFilter: (filter: string) => void
+  searchTerm: string
+  setSearchTerm: (term: string) => void
+  categories: string[]
 }
 
 export const MenuFilters = ({
-  selectedCategory,
-  setSelectedCategory,
-  showVegetarian,
-  setShowVegetarian,
-  showSeafood,
-  setShowSeafood,
-  categories,
+  activeFilter,
+  setActiveFilter,
+  searchTerm,
+  setSearchTerm,
+  categories
 }: MenuFiltersProps) => {
   return (
-    <div className="mb-8">
-      <div className="flex flex-wrap gap-2">
+    <div className='mb-8'>
+      <div className='flex flex-wrap gap-2 place-content-center'>
+        {/* Bouton "Tout" */}
         <button
-          onClick={() => setSelectedCategory("all")}
+          onClick={() => setActiveFilter('all')}
           className={`px-4 py-2 rounded-full transition-colors ${
-            selectedCategory === "all"
-              ? "bg-pizza-400 text-pizza-100"
-              : "bg-pizza-600/50 text-pizza-200 border border-pizza-300"
+            activeFilter === 'all'
+              ? 'bg-orange-400 text-orange-100'
+              : 'bg-orange-600/50 text-orange-200 border border-orange-300'
           }`}
         >
           Tout
         </button>
-        {categories.map((category) => (
+
+        {/* Boutons des catégories */}
+        {categories.map(category => (
           <button
             key={category}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => setActiveFilter(category)}
             className={`px-4 py-2 rounded-full transition-colors ${
-              selectedCategory === category
-                ? "bg-pizza-300 text-[#1A1F2C]"
-                : "bg-[#1A1F2C]/50 text-pizza-300 border border-pizza-300"
+              activeFilter === category
+                ? 'bg-orange-300 text-[#1A1F2C]'
+                : 'bg-[#000000FF]/70 text-orange-300 border border-orange-300'
             }`}
           >
             {category}
           </button>
         ))}
+
+        {/* Bouton "Végétarien" */}
         <button
-          onClick={() => setShowVegetarian(!showVegetarian)}
+          onClick={() => setActiveFilter('vegetarian')}
           className={`px-4 py-2 rounded-full transition-colors ${
-            showVegetarian
-              ? "bg-pizza-400 text-pizza-100"
-              : "bg-pizza-600/50 text-pizza-200 border border-pizza-300"
+            activeFilter === 'vegetarian'
+              ? 'bg-orange-400 text-orange-100'
+              : 'bg-orange-600/50 text-orange-200 border border-orange-300'
           }`}
         >
           🥬 Végétarien
         </button>
+
+        {/* Bouton "Fruits de mer" */}
         <button
-          onClick={() => setShowSeafood(!showSeafood)}
+          onClick={() => setActiveFilter('seafood')}
           className={`px-4 py-2 rounded-full transition-colors ${
-            showSeafood
-              ? "bg-pizza-400 text-pizza-100"
-              : "bg-pizza-600/50 text-pizza-200 border border-pizza-300"
+            activeFilter === 'seafood'
+              ? 'bg-orange-400 text-orange-100'
+              : 'bg-orange-600/50 text-orange-200 border border-orange-300'
           }`}
         >
           🐟 Fruits de mer
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
