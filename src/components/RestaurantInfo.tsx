@@ -11,10 +11,10 @@ export const RestaurantInfo = () => {
             <div className="flex justify-center mb-4">
               <Pizza className="w-16 h-16 text-white animate-spin-slow" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg font-pacifico">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
               Pierrick Pizza
             </h1>
-            <p className="text-xl text-orange-100 drop-shadow-lg flex items-center justify-center gap-2 font-pacifico">
+            <p className="text-xl text-orange-100 drop-shadow-lg flex items-center justify-center gap-2">
               <ChefHat className="w-6 h-6" />
               L'authentique saveur italienne près de chez vous
               <CookingPot className="w-6 h-6" />
