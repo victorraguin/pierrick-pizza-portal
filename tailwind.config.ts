@@ -20,6 +20,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Lato', 'sans-serif'],
+        title: ['Lilita One', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",

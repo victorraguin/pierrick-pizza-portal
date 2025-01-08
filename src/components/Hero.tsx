@@ -14,7 +14,7 @@ export const Hero = () => {
           <div className="flex justify-center mb-4">
             <Pizza className="w-16 h-16 text-orange-400 animate-spin-slow" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-title text-white mb-4 drop-shadow-lg">
             Pierrick Pizza
           </h1>
           <p className="text-xl text-orange-100 drop-shadow-lg flex items-center justify-center gap-2">
