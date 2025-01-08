@@ -4,7 +4,7 @@ export const Hero = () => {
   return (
     <div className='w-full h-[350px] md:h-[400px] rounded-xl overflow-hidden mb-8 relative'>
       <img
-        src='/public/pierrick-pizza-pizzeria.PNG'
+        src='/pierrick-pizza-pizzeria.PNG'
         alt='Pizza traditionnelle'
         className='absolute inset-0 w-full h-full object-cover'
       />

@@ -146,7 +146,7 @@ const Index = () => {
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
             <div className='group relative overflow-hidden rounded-lg'>
               <img
-                src='/public/pierrick-pizza-pizzeria.PNG'
+                src='/pierrick-pizza-pizzeria.PNG'
                 alt='Pizza traditionnelle'
                 className='w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110'
               />
@@ -158,7 +158,7 @@ const Index = () => {
             </div>
             <div className='group relative overflow-hidden rounded-lg'>
               <img
-                src='/public/pizza-pierrick-pizza.PNG'
+                src='/pizza-pierrick-pizza.PNG'
                 alt='Pizza traditionnelle'
                 className='w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110'
               />
@@ -168,7 +168,7 @@ const Index = () => {
             </div>
             <div className='group relative overflow-hidden rounded-lg'>
               <img
-                src='/public/pierrick-pizza.PNG'
+                src='/pierrick-pizza.PNG'
                 alt='Notre restaurant'
                 className='w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110'
               />
