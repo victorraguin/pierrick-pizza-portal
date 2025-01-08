@@ -20,6 +20,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Lato', 'sans-serif'],
+        pacifico: ['Pacifico', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",

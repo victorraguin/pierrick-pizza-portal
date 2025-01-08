@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-xl sm:text-2xl font-semibold text-pizza-800 px-2 sm:px-0">
+            <Link to="/" className="text-xl sm:text-2xl font-pacifico text-pizza-800 px-2 sm:px-0">
               Pierrick Pizza
             </Link>
           </div>
