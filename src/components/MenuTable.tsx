@@ -40,7 +40,7 @@ export const MenuTable = ({ items, category }: MenuTableProps) => {
 
   return (
     <div className="mb-12 animate-fadeIn">
-      <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+      <h2 className="text-3xl font-title text-white mb-8 flex items-center gap-3">
         <Pizza className="w-8 h-8 text-orange-500" />
         <span className="border-b-2 border-orange-500/50 pb-2">{category}</span>
       </h2>

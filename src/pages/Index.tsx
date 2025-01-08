@@ -37,7 +37,7 @@ const Index = () => {
         </div>
 
         <div className="relative mb-12">
-          <h2 className="text-4xl font-bold text-white mb-8 flex items-center justify-center gap-4">
+          <h2 className="text-4xl font-title text-white mb-8 flex items-center justify-center gap-4">
             <Utensils className="w-8 h-8 text-orange-500" />
             Notre Menu
             <Pizza className="w-8 h-8 text-orange-500 animate-spin-slow" />
@@ -82,7 +82,7 @@ const Index = () => {
         </div>
 
         <div className="mt-12 p-6 bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 animate-fadeIn">
-          <h3 className="text-xl font-semibold text-pizza-100 mb-4 flex items-center justify-center gap-2">
+          <h3 className="text-xl font-title text-pizza-100 mb-4 flex items-center justify-center gap-2">
             <Plus className="w-5 h-5 text-orange-500" />
             Suppléments
           </h3>
@@ -107,7 +107,7 @@ const Index = () => {
         </div>
 
         <div className="mt-12">
-          <h3 className="text-xl font-semibold text-pizza-100 mb-6 flex items-center justify-center gap-2">
+          <h3 className="text-xl font-title text-pizza-100 mb-6 flex items-center justify-center gap-2">
             <Image className="w-6 h-6 text-orange-500" />
             Notre pizzeria en images
           </h3>
@@ -146,7 +146,7 @@ const Index = () => {
         </div>
 
         <div className="mt-12">
-          <h3 className="text-xl font-semibold text-pizza-100 mb-6 flex items-center justify-center gap-2">
+          <h3 className="text-xl font-title text-pizza-100 mb-6 flex items-center justify-center gap-2">
             <Star className="w-6 h-6 text-yellow-400" />
             Avis de nos clients
           </h3>
