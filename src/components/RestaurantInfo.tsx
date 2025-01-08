@@ -1,28 +1,9 @@
-import { MapPin, Phone, Clock, Truck, Pizza, ChefHat, CookingPot } from "lucide-react";
+import { MapPin, Phone, Clock, Truck } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export const RestaurantInfo = () => {
   return (
     <div className="mb-12 space-y-6 animate-fadeIn">
-      <div className="w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-8 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/90 via-red-600/95 to-red-800/90 opacity-90" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center space-y-4 px-4">
-            <div className="flex justify-center mb-4">
-              <Pizza className="w-16 h-16 text-white animate-spin-slow" />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-              Pierrick Pizza
-            </h1>
-            <p className="text-xl text-orange-100 drop-shadow-lg flex items-center justify-center gap-2">
-              <ChefHat className="w-6 h-6" />
-              L'authentique saveur italienne près de chez vous
-              <CookingPot className="w-6 h-6" />
-            </p>
-          </div>
-        </div>
-      </div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Alert className="bg-gradient-to-br from-orange-500/10 to-red-600/10 border-orange-500/20 hover:bg-orange-500/20 transition-colors duration-300">
           <MapPin className="h-5 w-5 text-orange-500" />
