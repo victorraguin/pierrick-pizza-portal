@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-semibold text-pizza-800">
+            <Link to="/" className="text-xl sm:text-2xl font-semibold text-pizza-800 px-2 sm:px-0">
               Pierrick Pizza
             </Link>
           </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-pizza-500 focus:outline-none"
+              className="text-gray-600 hover:text-pizza-500 focus:outline-none p-2"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

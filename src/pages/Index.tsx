@@ -29,16 +29,18 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-pizza-900 to-black">
-      <div className="max-w-7xl mx-auto px-4 py-12 perspective-1000">
-        <RestaurantInfo />
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 perspective-1000">
         <div className="relative mb-12">
-          <div className="absolute -left-8 top-1/2 transform -translate-y-1/2">
+          <div className="absolute -left-4 sm:-left-8 top-1/2 transform -translate-y-1/2 max-w-[48px] overflow-hidden">
             <ChefHat className="w-12 h-12 text-orange-500/20 animate-bounce" />
           </div>
-          <div className="absolute -right-8 top-1/2 transform -translate-y-1/2">
+          <div className="absolute -right-4 sm:-right-8 top-1/2 transform -translate-y-1/2 max-w-[48px] overflow-hidden">
             <CookingPot className="w-12 h-12 text-orange-500/20 animate-bounce delay-100" />
           </div>
+          <RestaurantInfo />
+        </div>
+
+        <div className="relative mb-12">
           <h2 className="text-4xl font-bold text-white mb-8 flex items-center justify-center gap-4">
             <Utensils className="w-8 h-8 text-orange-500" />
             Notre Menu

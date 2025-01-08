@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Pizza } from "lucide-react";
+import { Pizza, Leaf, Fish } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface MenuItem {
@@ -63,12 +63,14 @@ export const MenuTable = ({ items, category }: MenuTableProps) => {
                   <div>
                     {pizza.name}
                     {pizza.isVegetarian && (
-                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-stone-800/50 text-stone-300 border border-stone-500/20">
+                      <span className="ml-2 inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-green-900/50 text-green-300 border border-green-500/20">
+                        <Leaf className="w-3 h-3" />
                         Végétarien
                       </span>
                     )}
                     {pizza.isSeafood && (
-                      <span className="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-stone-800/50 text-stone-300 border border-stone-500/20">
+                      <span className="ml-2 inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-blue-900/50 text-blue-300 border border-blue-500/20">
+                        <Fish className="w-3 h-3" />
                         Fruits de mer
                       </span>
                     )}
