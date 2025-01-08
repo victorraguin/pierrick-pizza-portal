@@ -4,7 +4,7 @@ import { RestaurantInfo } from "@/components/RestaurantInfo";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { MenuFilters } from "@/components/MenuFilters";
 import { menuData } from "@/data/menuData";
-import { Plus, Egg, Carrot, Beef, Pizza, Image, Star } from "lucide-react";
+import { Plus, Egg, Carrot, Beef, Pizza, Image, Star, Utensils, ChefHat, CookingPot } from "lucide-react";
 
 const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -32,17 +32,31 @@ const Index = () => {
       <div className="max-w-7xl mx-auto px-4 py-12 perspective-1000">
         <RestaurantInfo />
 
-        <MenuFilters
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-          showVegetarian={showVegetarian}
-          setShowVegetarian={setShowVegetarian}
-          showSeafood={showSeafood}
-          setShowSeafood={setShowSeafood}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          categories={Object.keys(menuData)}
-        />
+        <div className="relative mb-12">
+          <div className="absolute -left-8 top-1/2 transform -translate-y-1/2">
+            <ChefHat className="w-12 h-12 text-orange-500/20 animate-bounce" />
+          </div>
+          <div className="absolute -right-8 top-1/2 transform -translate-y-1/2">
+            <CookingPot className="w-12 h-12 text-orange-500/20 animate-bounce delay-100" />
+          </div>
+          <h2 className="text-4xl font-bold text-white mb-8 flex items-center justify-center gap-4">
+            <Utensils className="w-8 h-8 text-orange-500" />
+            Notre Menu
+            <Pizza className="w-8 h-8 text-orange-500 animate-spin-slow" />
+          </h2>
+
+          <MenuFilters
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            showVegetarian={showVegetarian}
+            setShowVegetarian={setShowVegetarian}
+            showSeafood={showSeafood}
+            setShowSeafood={setShowSeafood}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            categories={Object.keys(menuData)}
+          />
+        </div>
 
         {!hasResults && (
           <Alert className="mb-8 bg-pizza-800/50 border-pizza-700">
@@ -69,22 +83,25 @@ const Index = () => {
           })}
         </div>
 
-        <div className="mt-12 p-6 bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700">
-          <h3 className="text-xl font-semibold text-pizza-100 mb-4">Suppléments</h3>
+        <div className="mt-12 p-6 bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 animate-fadeIn">
+          <h3 className="text-xl font-semibold text-pizza-100 mb-4 flex items-center justify-center gap-2">
+            <Plus className="w-5 h-5 text-orange-500" />
+            Suppléments
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="flex items-center space-x-2 text-pizza-200">
+            <div className="flex items-center space-x-2 text-pizza-200 hover:text-orange-500 transition-colors">
               <Egg className="w-5 h-5" />
               <span>Œuf: 0,50€</span>
             </div>
-            <div className="flex items-center space-x-2 text-pizza-200">
+            <div className="flex items-center space-x-2 text-pizza-200 hover:text-orange-500 transition-colors">
               <Carrot className="w-5 h-5" />
               <span>Légume: 1,00€</span>
             </div>
-            <div className="flex items-center space-x-2 text-pizza-200">
+            <div className="flex items-center space-x-2 text-pizza-200 hover:text-orange-500 transition-colors">
               <Beef className="w-5 h-5" />
               <span>Viande: 2,00€</span>
             </div>
-            <div className="flex items-center space-x-2 text-pizza-200">
+            <div className="flex items-center space-x-2 text-pizza-200 hover:text-orange-500 transition-colors">
               <Pizza className="w-5 h-5" />
               <span>Fromage: 1,50€</span>
             </div>
@@ -92,36 +109,51 @@ const Index = () => {
         </div>
 
         <div className="mt-12">
-          <h3 className="text-xl font-semibold text-pizza-100 mb-6 flex items-center gap-2">
-            <Image className="w-6 h-6" />
+          <h3 className="text-xl font-semibold text-pizza-100 mb-6 flex items-center justify-center gap-2">
+            <Image className="w-6 h-6 text-orange-500" />
             Notre pizzeria en images
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <img
-              src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=60"
-              alt="Pizza margherita traditionnelle"
-              className="rounded-lg w-full h-64 object-cover hover:opacity-90 transition-opacity"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&auto=format&fit=crop&q=60"
-              alt="Notre four à pizza traditionnel"
-              className="rounded-lg w-full h-64 object-cover hover:opacity-90 transition-opacity"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1542834369-f10ebf06d3e0?w=800&auto=format&fit=crop&q=60"
-              alt="Notre restaurant"
-              className="rounded-lg w-full h-64 object-cover hover:opacity-90 transition-opacity"
-            />
+            <div className="group relative overflow-hidden rounded-lg">
+              <img
+                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=60"
+                alt="Pizza margherita traditionnelle"
+                className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <p className="text-white text-sm">Notre délicieuse Margherita traditionnelle</p>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-lg">
+              <img
+                src="https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&auto=format&fit=crop&q=60"
+                alt="Notre four à pizza traditionnel"
+                className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <p className="text-white text-sm">Notre four à pizza traditionnel</p>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-lg">
+              <img
+                src="https://images.unsplash.com/photo-1542834369-f10ebf06d3e0?w=800&auto=format&fit=crop&q=60"
+                alt="Notre restaurant"
+                className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <p className="text-white text-sm">L'ambiance chaleureuse de notre restaurant</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="mt-12">
-          <h3 className="text-xl font-semibold text-pizza-100 mb-6 flex items-center gap-2">
+          <h3 className="text-xl font-semibold text-pizza-100 mb-6 flex items-center justify-center gap-2">
             <Star className="w-6 h-6 text-yellow-400" />
             Avis de nos clients
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 p-6">
+            <div className="bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 p-6 hover:border-orange-500/50 transition-colors duration-300">
               <div className="flex items-center mb-2">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
@@ -134,7 +166,7 @@ const Index = () => {
               <p className="text-pizza-300 mt-2 text-sm">- Marie L.</p>
             </div>
 
-            <div className="bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 p-6">
+            <div className="bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 p-6 hover:border-orange-500/50 transition-colors duration-300">
               <div className="flex items-center mb-2">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
@@ -147,7 +179,7 @@ const Index = () => {
               <p className="text-pizza-300 mt-2 text-sm">- Thomas D.</p>
             </div>
 
-            <div className="bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 p-6">
+            <div className="bg-pizza-800/50 backdrop-blur-sm rounded-xl border border-pizza-700 p-6 hover:border-orange-500/50 transition-colors duration-300">
               <div className="flex items-center mb-2">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
