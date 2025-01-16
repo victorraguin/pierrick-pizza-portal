@@ -165,8 +165,7 @@ Email: ${clientData.email}`,
             Abonnement Site Vitrine
           </h1>
           <p className='text-lg text-pizza-200'>
-            Créez votre présence en ligne pour 300€ + 15€/mois. Nous nous
-            occupons de tout !
+            Validez votre abonnement pour 15€/mois.
           </p>
         </motion.div>
 
@@ -196,7 +195,7 @@ Email: ${clientData.email}`,
               <span className='font-bold text-orange-300'>
                 Frais de création
               </span>{' '}
-              : 300€
+              : 0€
             </p>
             <p className='mb-4'>
               <span className='font-bold text-orange-300'>

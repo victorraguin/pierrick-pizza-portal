@@ -27,7 +27,7 @@ const PayPalSubscribeButton: React.FC<PayPalSubscribeButtonProps> = ({
       const script = document.createElement('script')
       script.id = 'paypal-script'
       script.src =
-        'https://www.paypal.com/sdk/js?client-id=AYRwBFYwRerGPBe7u2Q5JyJ9P-ZXp9sgJMochjbhkyUMWXrauBDeA4tqcf2vYv8wL5odQz67H98yYm8p&vault=true&intent=subscription'
+        'https://www.paypal.com/sdk/js?client-id=ATW5nY89-UNbxN-e9O5UeOITrhJkKdnX4p0u4sIy3nEGeUugBMZ5GptcnWG-PjTKFTOieY9KV7aYKWQo&vault=true&intent=subscription'
       script.async = true
 
       script.onload = () => {
@@ -42,7 +42,7 @@ const PayPalSubscribeButton: React.FC<PayPalSubscribeButtonProps> = ({
               },
               createSubscription: (data: any, actions: any) => {
                 return actions.subscription.create({
-                  plan_id: 'P-56J750674P8051443M56TZQQ'
+                  plan_id: 'P-0B407686WK038292WM6ESA2Q'
                 })
               },
               onApprove: async (data: any, actions: any) => {
@@ -50,7 +50,7 @@ const PayPalSubscribeButton: React.FC<PayPalSubscribeButtonProps> = ({
                 // On tente d'envoyer au serveur :
                 try {
                   const response = await fetch(
-                    'http://localhost:4000/api/send-subscription-id',
+                    'https://email-server-xkja.onrender.com/api/send-subscription-id',
                     {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },

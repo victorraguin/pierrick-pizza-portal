@@ -107,11 +107,13 @@ export const MenuTable = ({ items, category }: MenuTableProps) => {
                 )}
                 <TableCell className='text-right'>
                   <div className='text-orange-400 font-semibold'>
-                    {pizza.price1P}€
+                    <span className='text-gray-400'>1 pers:</span>{' '}
+                    <span className='text-orange-400'>{pizza.price1P}€</span>
                   </div>
                   {pizza.price2P && (
-                    <div className='text-sm text-gray-400'>
-                      2 pers: {pizza.price2P}€
+                    <div className='text-orange-400 font-semibold'>
+                      <span className='text-gray-400'>2 pers:</span>{' '}
+                      <span className='text-orange-400'>{pizza.price2P}€</span>
                     </div>
                   )}
                 </TableCell>

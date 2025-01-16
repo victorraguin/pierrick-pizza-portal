@@ -105,7 +105,7 @@ ${formData.message}`,
   }
 
   return (
-    <div className='py-12 bg-gradient-to-br from-[#7F9651] via-pizza-500 to-pizza-700'>
+    <div className='py-12 bg-gradient-to-br from-[#7F9651] via-[#536235] to-[#8f3912]'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
